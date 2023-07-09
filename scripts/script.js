@@ -7,7 +7,9 @@ const gameContainer = document.querySelector(".game-container");
 const gridSizeSlider = document.querySelector("#grid-size-selector");
 const gridDimensionsText = document.querySelector("#grid-dimensions-text");
 const resizeGridBtn = document.querySelector("#resize-grid-btn");
+const eraser = document.querySelector("#eraser");
 let mouseDown = false;
+let eraserActive = false;
 
 gameContainer.onmousedown = () => {
     mouseDown = true;
@@ -26,6 +28,11 @@ resizeGridBtn.addEventListener("click", () => {
     clearGrid();
     createGrid(gridDimensions);
     
+});
+
+eraser.addEventListener("click", () => {
+    eraser.classList.toggle("eraser-active");
+    eraserActive ? eraserActive = false : eraserActive = true;
 });
 
 function clearGrid() {
@@ -54,18 +61,22 @@ function createGrid(gridDimensions) {
             row.appendChild(column);
         }
     }
-    addGameBoardListeners();
-    
+    addGameBoardListeners();  
 }
+
 function addGameBoardListeners() {
     let squares = document.querySelectorAll(".column");
     squares.forEach((square) => {
         square.addEventListener("mouseover", (e) => {
             if (mouseDown) {
-                e.target.style.backgroundColor = backgroundColors[currentColor];
-                currentColor += 1;
-                if (currentColor === backgroundColors.length) {
-                    currentColor = 0;
+                if (eraserActive) {
+                    e.target.style.backgroundColor = "white";
+                } else {
+                    e.target.style.backgroundColor = backgroundColors[currentColor];
+                    currentColor += 1;
+                    if (currentColor === backgroundColors.length) {
+                        currentColor = 0;
+                    }
                 }
             }
         });

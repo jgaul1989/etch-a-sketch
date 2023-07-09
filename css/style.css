@@ -71,3 +71,11 @@ button {
     font-weight: bold;
     font-family: monospace;
 }
+
+#eraser {
+    align-self: flex-start;
+}
+
+.eraser-active {
+    background-color: red;
+}
