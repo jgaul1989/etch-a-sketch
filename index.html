@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,20 +8,28 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="scripts/script.js" defer></script>
 </head>
+
 <body>
-    <div class = "control-panel">
+    <div class="control-panel">
         <p>Use the slider to change the dimensions</p>
-        <p id = "grid-dimensions-text">16 x 16</p>
-        <input id = "grid-size-selector" type="range" min = "2" max = "100" value = "16">
-        <button id = "resize-grid-btn">Apply</button>
-        <button id = "eraser">Eraser</button>
+        <p id="grid-dimensions-text">16 x 16</p>
+        <input id="grid-size-selector" type="range" min="2" max="100" value="16">
+        <button id="resize-grid-btn">Apply</button>
+        <div class="color-controls">
+            <label for="color-picker">Pick a color</label>
+            <input type="color" value="#000000" id="color-picker" name="color-picker">
+            <button id = "rainbow">Rainbow Color</button>
+            <button id="eraser">Eraser</button>
+        </div>
     </div>
-    <section class = "content">
-        <section class = "header">
+    <section class="content">
+        <section class="header">
             <h1>Etch-a-Sketch</h1>
         </section>
-        <section class = "game-container"></section>
+        <section class="game-container"></section>
+        <p>Hold down the left mouse button to draw!</p>
     </section>
-    
+
 </body>
+
 </html>

@@ -5,11 +5,15 @@ const backgroundColors = ["yellow", "lime", "green", "orange", "pink", "red", "m
 let currentColor = 0;
 const gameContainer = document.querySelector(".game-container");
 const gridSizeSlider = document.querySelector("#grid-size-selector");
+const colorPicker = document.querySelector("#color-picker");
 const gridDimensionsText = document.querySelector("#grid-dimensions-text");
 const resizeGridBtn = document.querySelector("#resize-grid-btn");
-const eraser = document.querySelector("#eraser");
+const eraserBtn = document.querySelector("#eraser");
+const rainbowBtn = document.querySelector("#rainbow");
 let mouseDown = false;
 let eraserActive = false;
+let rainbowActive = false;
+let activeColor;
 
 gameContainer.onmousedown = () => {
     mouseDown = true;
@@ -23,6 +27,10 @@ gridSizeSlider.addEventListener("input", () => {
     gridDimensionsText.textContent = `${gridSizeSlider.value} x ${gridSizeSlider.value}`;
 });
 
+colorPicker.addEventListener("input", () => {
+    activeColor = colorPicker.value;
+})
+
 resizeGridBtn.addEventListener("click", () => {
     const gridDimensions = parseInt(gridSizeSlider.value);
     clearGrid();
@@ -30,9 +38,14 @@ resizeGridBtn.addEventListener("click", () => {
     
 });
 
-eraser.addEventListener("click", () => {
-    eraser.classList.toggle("eraser-active");
+eraserBtn.addEventListener("click", () => {
+    eraserBtn.classList.toggle("eraser-active");
     eraserActive ? eraserActive = false : eraserActive = true;
+});
+
+rainbowBtn.addEventListener("click", () => {
+    rainbowBtn.classList.toggle("rainbow-active");
+    rainbowActive ? rainbowActive = false : rainbowActive = true;
 });
 
 function clearGrid() {
@@ -71,12 +84,16 @@ function addGameBoardListeners() {
             if (mouseDown) {
                 if (eraserActive) {
                     e.target.style.backgroundColor = "white";
-                } else {
+                } else if (activeColor) {
+                    e.target.style.backgroundColor = activeColor;
+                } else if (rainbowActive){
                     e.target.style.backgroundColor = backgroundColors[currentColor];
                     currentColor += 1;
                     if (currentColor === backgroundColors.length) {
                         currentColor = 0;
                     }
+                } else {
+                    e.target.style.backgroundColor = "black";
                 }
             }
         });

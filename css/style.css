@@ -28,6 +28,7 @@ body {
     flex-direction: column;
     gap: 50px;
     align-items: center;
+    text-align: center;
 }
 
 .game-container {
@@ -50,10 +51,10 @@ body {
 
 .control-panel {
     width: 500px;
-    height: 500px;
+    height: 700px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     text-align: center;
     gap: 15px;
@@ -72,10 +73,28 @@ button {
     font-family: monospace;
 }
 
-#eraser {
-    align-self: flex-start;
+.color-controls {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
 }
 
 .eraser-active {
-    background-color: red;
+    background-color: pink;
+}
+
+#eraser {
+    margin-top: 25px;
+}
+
+#rainbow {
+    margin-top: 25px;
+}
+
+.rainbow-active {
+    background: linear-gradient(217deg, rgba(255, 0, 0, .8), rgba(255, 0, 0, 0) 70.71%),
+        linear-gradient(127deg, rgba(0, 255, 0, .8), rgba(0, 255, 0, 0) 70.71%),
+        linear-gradient(336deg, rgba(0, 0, 255, .8), rgba(0, 0, 255, 0) 70.71%);
 }
