@@ -8,8 +8,18 @@
     <script src="scripts/script.js" defer></script>
 </head>
 <body>
-
-    <section class = "game-container"></section>
+    <div class = "control-panel">
+        <p>Use the slider to change the dimensions</p>
+        <p id = "grid-size">16 x 16</p>
+        <input id = "slider" type="range" min = "2" max = "100" value = "16">
+        <button>Apply</button>
+    </div>
+    <section class = "content">
+        <section class = "header">
+            <h1>Etch-a-Sketch</h1>
+        </section>
+        <section class = "game-container"></section>
+    </section>
     
 </body>
 </html>

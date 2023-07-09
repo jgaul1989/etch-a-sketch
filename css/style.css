@@ -4,6 +4,32 @@
     box-sizing: border-box;
 }
 
+h1 {
+    font-size: 48px;
+}
+
+.header {
+    margin-top: 50px;
+}
+
+body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 100px;
+    background-color: #4980f718;
+    font-family: monospace;
+    font-size: 24px;
+    flex-wrap: wrap-reverse;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+}
+
 .game-container {
     width: 600px;
     height: 600px;
@@ -20,4 +46,28 @@
 .column {
     flex: 1;
     border: 1px black solid;
+}
+
+.control-panel {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+}
+
+#slider {
+    width: 250px;
+}
+
+button {
+    padding: 15px;
+    font-size: 18px;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-weight: bold;
+    font-family: monospace;
 }
